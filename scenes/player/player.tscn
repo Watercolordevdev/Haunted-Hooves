@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://vxr1rdmwtph8"]
+
+[ext_resource type="Texture2D" uid="uid://c1u5k2mxcljyd" path="res://scenes/player/fluttershy.png" id="1_afv4s"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_emwwj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jbd3"]
+radius = 7.0
+height = 20.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+script = ExtResource("1_emwwj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_afv4s")
+offset = Vector2(-1, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_6jbd3")

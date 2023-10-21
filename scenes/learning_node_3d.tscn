@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b3erssj625gql"]
+
+[ext_resource type="Texture2D" uid="uid://djvmi8rxylstj" path="res://scenes/enemies/ghost.png" id="1_d04j7"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture = ExtResource("1_d04j7")
