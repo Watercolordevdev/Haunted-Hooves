@@ -1,14 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://vxr1rdmwtph8"]
+[gd_scene load_steps=6 format=3 uid="uid://vxr1rdmwtph8"]
 
 [ext_resource type="Texture2D" uid="uid://c1u5k2mxcljyd" path="res://scenes/player/fluttershy.png" id="1_afv4s"]
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_emwwj"]
+[ext_resource type="PackedScene" uid="uid://b2tp1756sghd5" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="2_rls01"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6jbd3"]
 radius = 7.0
 height = 20.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_wqy18"]
+radius = 24.0208
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_emwwj")
+
+[node name="AbilityManager" type="Node" parent="."]
+
+[node name="SwordAbilityController" parent="AbilityManager" instance=ExtResource("2_rls01")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_afv4s")
@@ -17,3 +25,12 @@ offset = Vector2(-1, -16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_6jbd3")
+
+[node name="detection_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="detection_area"]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_wqy18")
+
+[connection signal="body_entered" from="detection_area" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="detection_area" to="." method="_on_detection_area_body_exited"]

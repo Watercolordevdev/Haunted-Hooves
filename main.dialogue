@@ -1,0 +1,15 @@
+~ start
+
+Jack O' Lantern: You need to get out of our way!
+- U-um, okay...
+	Fluttershy: [#scared] U-um, okay then, Mr. Pumpkin... if that's what you want...
+	Jack O' Lantern: Good, very good!
+	=> END
+- NO!
+	Fluttershy: [#angry] (big inhale) NO!
+	Jack O' Lantern: Then let us fight!
+	=> END
+
+
+
+=> END
