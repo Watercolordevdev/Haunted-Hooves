@@ -13,7 +13,7 @@ func _ready():
 func _physics_process(delta):
 	if enemy_in_range == true && is_talking == false:
 		is_talking = true
-		DialogueManager.show_example_dialogue_balloon(load("res://main.dialogue"), "start")
+		DialogueManager.startdialogue(load("res://main.dialogue"), "start")
 	elif enemy_in_range == true && is_talking == true:
 		pass
 	else:

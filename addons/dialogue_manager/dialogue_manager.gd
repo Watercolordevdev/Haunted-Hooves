@@ -97,6 +97,7 @@ func get_next_dialogue_line(resource: DialogueResource, key: String = "", extra_
 				pass
 		if actual_next_id in [DialogueConstants.ID_END_CONVERSATION, DialogueConstants.ID_NULL, null]:
 			# End the conversation
+			
 			dialogue_ended.emit(resource)
 			return null
 		else:
@@ -194,6 +195,17 @@ func create_resource_from_text(text: String) -> Resource:
 
 	return resource
 
+func startdialogue(resource: DialogueResource, title: String = "", extra_game_states: Array = []) -> void:
+	get_tree().current_scene.get_node("World").process_mode = Node.PROCESS_MODE_DISABLED
+	dialogue_ended.connect((func(_resource):
+		get_tree().current_scene.get_node("World").process_mode = Node.PROCESS_MODE_INHERIT),
+		CONNECT_ONE_SHOT
+		)
+	var ExampleBalloonScene = load("res://addons/dialogue_manager/example_balloon/example_balloon.tscn")
+	var balloon: Node = ExampleBalloonScene.instantiate()
+	get_tree().current_scene.add_child(balloon)
+	balloon.start(resource, title, extra_game_states)
+	pass
 
 ## Show the example balloon
 func show_example_dialogue_balloon(resource: DialogueResource, title: String = "", extra_game_states: Array = []) -> void:
