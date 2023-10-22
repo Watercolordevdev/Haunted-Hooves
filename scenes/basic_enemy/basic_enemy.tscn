@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cj6xplt5y6ot"]
+[gd_scene load_steps=5 format=3 uid="uid://cj6xplt5y6ot"]
 
 [ext_resource type="Script" path="res://scenes/basic_enemy/basic_enemy.gd" id="1_wc4ar"]
 [ext_resource type="Texture2D" uid="uid://k7iewuupmj36" path="res://scenes/basic_enemy/jackolantern.png" id="2_i5gjs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kc6pm"]
+radius = 15.1327
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3sn1q"]
 radius = 12.0416
@@ -9,10 +12,24 @@ radius = 12.0416
 [node name="BasicEnemy" type="CharacterBody2D" groups=["enemy"]]
 script = ExtResource("1_wc4ar")
 
-[node name="Sprite2D" type="Sprite2D" parent="." groups=["enemy"]]
+[node name="Hurtbox" type="Area2D" parent="."]
+position = Vector2(0, 6)
+scale = Vector2(1.47723, 1.39718)
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+light_mask = 0
+visibility_layer = 4
+position = Vector2(0, -14.3145)
+shape = SubResource("CircleShape2D_kc6pm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_i5gjs")
 offset = Vector2(0, -15)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemy"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("CircleShape2D_3sn1q")
+
+[connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]

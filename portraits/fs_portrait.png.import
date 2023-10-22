@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3xi56s2uuey0"
-path="res://.godot/imported/flutterplaceholder.png-c2aa29485c93937f52da847744cf00dd.ctex"
+uid="uid://dws1yt8pfdfpp"
+path="res://.godot/imported/fs_portrait.png-519b74aeae13625ec2730212789e5358.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://portraits/flutterplaceholder.png"
-dest_files=["res://.godot/imported/flutterplaceholder.png-c2aa29485c93937f52da847744cf00dd.ctex"]
+source_file="res://portraits/fs_portrait.png"
+dest_files=["res://.godot/imported/fs_portrait.png-519b74aeae13625ec2730212789e5358.ctex"]
 
 [params]
 

@@ -9,15 +9,16 @@ func _ready():
 
 	pass
 	
+#DIALOGUE
 
-func _physics_process(delta):
-	if enemy_in_range == true && is_talking == false:
-		is_talking = true
-		DialogueManager.startdialogue(load("res://main.dialogue"), "start")
-	elif enemy_in_range == true && is_talking == true:
-		pass
-	else:
-		pass
+#func _physics_process(delta):
+#	if enemy_in_range == true && is_talking == false:
+#		is_talking = true
+#		DialogueManager.startdialogue(load("res://main.dialogue"), "start")
+#	elif enemy_in_range == true && is_talking == true:
+#		pass
+#	else:
+#		pass
 
 	
 func _process(delta):

@@ -2,9 +2,6 @@ extends CharacterBody2D
 
 const MAX_SPEED = 75
 
-func _ready():
-	pass
-	
 func _process(delta):
 	var direction = get_direction_to_player()
 	velocity = direction * MAX_SPEED
@@ -19,3 +16,7 @@ func get_direction_to_player():
 	
 func enemy():
 	pass
+
+
+func _on_hurtbox_area_entered(area):
+	queue_free()
